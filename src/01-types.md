@@ -31,3 +31,38 @@ Other things that maybe behave like types.
 
 These aren't exactly a type but they have behaviour. Does this make them a type? Think of them as "sort of a type", a sub type of the object type i.e. not a "top level" type.
 
+Things can get messy:
+![types-objects.png](/img/types-objects.png)
+
+Many of these may have object like behaviours that you can opt into, but they aren't objects.
+
+> In JavaScript, variables don't have types, values do.
+
+## typeof Operator
+
+`typeof` is a way of asking what is the "type" of a value.
+
+```js
+var v;
+typeof v;       // "undefined"
+v = "1";
+typeof v;       // "string"
+v = 2;
+typeof v;       // "number"
+v = true;
+typeof v;       // "boolean"
+v = {};
+typeof v;       // "object"
+v = Symbol();
+typeof v;       // "symbol"
+```
+
+`Undefined` essentially means "currently doesn't have a value".
+
+## BigInt
+
+## Kinds of Emptiness
+
+## Nan & isNaN
+
+## Negative Zero
