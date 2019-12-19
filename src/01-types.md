@@ -6,7 +6,7 @@
 * Equality
 * TypeScript, Flow, etc
 
-> "In JavaScript, everything is an object."
+> "In JavaScript, everything is an object." --false!
 
 The reason this is false, is because most of the values in JS can behave like objects, but that does not make them an object. An example of this is "false", which is not an object.
 
