@@ -147,3 +147,43 @@ Object.is(trendRate, 0)     // false;
 A whole load of things were added in JS to try outsmart the developer from doing things deemed "weird". This has in turn led to some strange things. The langauge shouldn't step in.
 
 Negative zero may be useful for example in mapping to show direction. They also might be useful if you are plotting trends and you want to show if something has been rising of falling. There are use cases for -0.
+
+## Fundamental Objects
+
+_aka: Built-In Objects_
+_aka: Native Functions_
+
+They are "sort of types" but not really. It's the bolted on OO in JS. As well as primitive values we have object representations with similar behaviours.
+
+These should be avoided, but understood.
+
+**Use new:**
+
+* Object()
+* Array()
+* Function()
+* Date()
+* RegExp()
+* Error
+
+If you need any of the above, then `new` should be used.
+
+There are other ones you **shouldn't** use new with.
+
+**Don't use new:**
+
+* String()
+* Number()
+* Boolean()
+
+These can be used with `new` to construct objects with this form but don't use it. You should use them as functions as they coerce any value to that respective primitive type. That is far more useful than the "weird object" you get with `new`.
+
+```js
+// use new
+var yesterday = new Date("December 18, 2019");
+yesterday.toUTCString();
+// "Wed, 19 Dec 2019 06:00:00 GMT"
+
+var myResult = String(jsonResponse.collegeGpa);
+// "3.54" <- as we've used "String" the json value has been coerced into a string.
+```
