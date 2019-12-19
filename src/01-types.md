@@ -128,3 +128,22 @@ The reason `isNaN("my son's age")` returns true is because `isNaN` will coerce t
 Remember that **NaN: Invalid Number**. Is _is_ a number. It's just not a valid one.
 
 ## Negative Zero
+
+Negative zero has some interesting behaviour.
+
+```js
+var trendRate = -0;
+trendRate === -0        // true
+
+trendRate.toString();   // "0" OOPS!
+trendRate === 0;        // true OOPS!
+trendRate < 0;          // false
+trendRate > 0;          // false
+
+Object.is(trendRate, -0)    // true
+Object.is(trendRate, 0)     // false;
+```
+
+A whole load of things were added in JS to try outsmart the developer from doing things deemed "weird". This has in turn led to some strange things. The langauge shouldn't step in.
+
+Negative zero may be useful for example in mapping to show direction. They also might be useful if you are plotting trends and you want to show if something has been rising of falling. There are use cases for -0.
