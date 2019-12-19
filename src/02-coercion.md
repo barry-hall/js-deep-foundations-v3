@@ -89,8 +89,122 @@ Note in the above example, if anything is _not_ in the falsy list then it is alw
 
 ## Cases of Coercion
 
+We all use coercion all the time. e.g. template strings. Below the number is implicitly getting coerced into a string. This isn't a bad thing...
 
+```js
+var numStudents = 16;
+console.log(
+    `There are ${numStudents} students.`
+)
+```
+
+If you concatenate a number and a string, the result will always have toString() applied to it.
+
+If you wanted to explitily coerce your value this would be the preferred way...
+
+```js
+var numStudents = 16;
+console.log(
+    `There are ${String(numStudents)} students.`
+)
+```
+
+To explicitly add a number you'd use something like the following;
+
+```js
+function addAStudent(numStudents) {
+    return numStudents + 1;
+}
+
+addAStudent(
+    Number(studentsInputElem.value) // explicitly passing a number...
+)
+```
+
+You have to be careful with coercion with booleans. In the below example, if `studentsInputElem.value` was a bunch of white space, the if statement would resolve as truthy... although this isn't a string you'd care about, it would be valid for the if!
+
+```js
+if(studentsInputElem.value) {
+    numStudents =
+        Number(stundentsInputElem.value);
+}
+
+// ***************************
+Boolean("");        // false
+Boolean(" \t\n");   // true OOPS!
+```
+
+We should be more explicit in our intent. Example;
+
+```js
+//this is essentially saying while "truthy"
+while(newStudents.length) {
+    enrollStudent(newStudents.pop());
+}
+
+// the below will protect you from more corner cases, but not all.
+// this is far more explicit and much better.
+while(newStudents.length > 0) {
+    enrollStudent(newStudents.pop());
+}
+```
+
+Boolean will test for undefined & null (on the falsy list) but where possible treat null and undefined as indistinguishable. Coerceion is helpful for this. "Has this thing been set or not" is a perfectly reasonable implicity boolean coercion.
+
+```js
+var workshop = getRegistration(student);
+
+if(workshop) {
+    console.log(
+        `Welcome ${student.name} to ${workshop.name}.`
+    )
+}
+
+// **********************
+Boolean(undefined)  // false
+Boolean(null)       // false
+Boolean({})         // true
+```
 
 ## Boxing
 
+Boxing is a form of implicit coercion. e.g. `studentNameElem.value.*length*`. Here it is saying, "you have this thing that is not an object and you're trying to use it as an object. Me as JavaScript I'm going to be helpful and go ahead and make it into an object for you".
+
+Boxing is also one of the reason why everyone seems to think that everything in JS is an object. Because boxing is taking place.
+
+Weather we call things coercion or conversion, all proigramming language have type converions, because it is absolutely necessary.
+
 ## Corner Cases of Coercion
+
+Every language has type conversion corner cases and JS is no exception. Here is a list of interesting ones.
+
+```js
+Number( "" );                   // 0    OOPS!
+Number( "  \t\n");              // 0    OOPS!
+Number( null );                 // 0    OOPS!
+Number( undefined );            // NaN
+Number( [] );                   // 0    OOPS!
+Number( [1,2,3] );              // NaN
+Number( [null] );               // 0    OOPS!
+Number( [undefined] );          // 0    OOPS!
+Number( {} );                   // NaN
+
+String( -0 );                   // "0"  OOPS!
+String( null );                 // "null"
+String( undefined );            // "undefined"
+String( [null] );               // ""   OOPS!
+String( [undefined] );          // ""   OOPS!
+
+Boolean( new Boolean(false) );  // true OOPS!
+```
+
+**The root of all (coercion) evil...**
+
+```js
+studentsInput.value = "";
+// ..
+Number(students.Input.value):   // 0
+studentsInput.value = "  \t\n";
+// ..
+Number(students.Input.value):   // 0
+```
