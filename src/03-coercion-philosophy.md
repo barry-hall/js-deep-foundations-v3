@@ -12,3 +12,35 @@ Everyone should be able to interoperate on a codebase. A junior will have to lea
 
 ## Implicit Coercion
 
+Implicitness is abstraction. Implicitness is not bad, it's the inaprorpiate use of abstraction. Hide unnecessary details, re-focusing the read and increasing clarity.
+
+Coercion: implicit can be good (sometimes)
+
+```js
+var numStudents = 16;
+console.log(
+    `There are ${String(numStudents)} students.` // if we are dealing with corner cases, this is fine.
+)
+// "There are 16 students."
+var numStudents = 16;
+console.log(
+    `There are ${numStudents} students.`
+)
+// "There are 16 students."
+```
+
+> Is showing the reader the extra type details helpful or distracting?
+
+Be an engineer, not a code monkey. Think critically and analytically.
+
+## Understanding Features
+
+> "If a feature is sometimes **useful** and sometimes **dangerous** _and if there is a better option_ then always use the better option."—"The Good Parts", Crockford
+
+**Useful**: when the reader is focused on what's important.
+
+**Dangerous**: when the reader can't tell what will happen.
+
+**Better**: when the reader understands the code.
+
+> It is _irresponsible_ to knowingly avoid usage of a feature that can and does _improve code readability_.
