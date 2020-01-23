@@ -64,19 +64,30 @@ The classic example: `[] == ![]; //true WAT!?`. The issue here is you would _nev
 
 ## Corner Cases: Booleans
 
-An example of corner cases with booleans. There is no case when you need to explicitly check with a double equals against a true or false where you can just do the toBoolean implicitly.
+An example of corner cases with booleans. There is no case when you need to explicitly check with a double equals against a true or false where you can just do the toBoolean implicitly. Examples below with how the algorithm processes this.
 
 ```js
 var workshopStudents = [];
 
+// if (workshopStudents {
+// if(Boolean(workshipStudents)) {
+// ^ how it is processed
 if(workshopStudents) { // YES! This is the way to do it.
     // Yep
 }
 
+// if (worshopStudents == true) {
+// if ("" == true) {
+// if(0 === 1) {
+// ^ how it is processed
 if(workshopStudents == true) { // DON'T DO THIS
     // Nope :(
 }
 
+// if (worshopStudents == false) {
+// if ("" == false) {
+// if(0 === 0) {
+// ^ how it is processed
 if(workshopStudents == false) { // DON'T DO THIS
     // Yep :(
 }
