@@ -93,6 +93,8 @@ if(workshopStudents == false) { // DON'T DO THIS
 }
 ```
 
+This is a nonsensical outcome to what was a nonsensical construct. You don't need to do `== false` or `== true`, allow the toBoolean to happen implicitly which avoids the _gotcha_ altogether.
+
 ## Corner Cases: Summary
 
 ## The Case for Double Equals
