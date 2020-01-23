@@ -49,16 +49,40 @@ if(workshop1Count == workshop2Count) {
     // ^ this is only _accidentally_ working because there is one value in the array
     // if(42 === 42) now we have a number and a string, so favoring numeric, the algorithm coerces the string "42" to a number.
 }
-
 ```
 
-## Double Equals Summary
+## Double Equals Summary
 
-## Double Equals Corner Cases
+* If the types are the same: ===
+* If _null_ or _undefined_: equal
+* If non-primitives: ToPrimitive
+* Prefer: ToNumber
 
-## Corner Cases: Booleans
+## Double Equals Corner Cases
 
-## Corner Cases: Summary
+The classic example: `[] == ![]; //true WAT!?`. The issue here is you would _never_, under any circumstances compare a value to the negation of itself. The whole thing isn't _broken_ because this one weird corner case doesn't behave sensibly.
 
-## The Case for Double Equals
+## Corner Cases: Booleans
+
+An example of corner cases with booleans. There is no case when you need to explicitly check with a double equals against a true or false where you can just do the toBoolean implicitly.
+
+```js
+var workshopStudents = [];
+
+if(workshopStudents) { // YES! This is the way to do it.
+    // Yep
+}
+
+if(workshopStudents == true) { // DON'T DO THIS
+    // Nope :(
+}
+
+if(workshopStudents == false) { // DON'T DO THIS
+    // Yep :(
+}
+```
+
+## Corner Cases: Summary
+
+## The Case for Double Equals
 
