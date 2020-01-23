@@ -97,5 +97,38 @@ This is a nonsensical outcome to what was a nonsensical construct. You don't nee
 
 ## Corner Cases: Summary
 
+**Avoid**:
+
+1. `==` with 0 or "" (or even " ")
+2. `==` with non-primitives
+3. `== true` or `== false`: allow ToBoolean or use `===`
+
 ## The Case for Double Equals
 
+`==` is preferrable to `===`. Knowing types is always better than not knowing them. Static Types is _not_ the only (or even necessarily best) way to know your types.
+
+`==` is **not** about comparisons with unknown types.
+
+`==` is about comparisons with known types, _optionally_ where conversions are helpful.
+
+If you _know_ the types in a comparison:
+
+* If both types are the same, `==` is identical to `===`
+* Using `===` would be _unnecessary_, so prefer the shorter `==`
+* If the types are different, using one `===` would be _broken_.
+* ^ prefer the _more powerful_ `==`  or _don't compare_ at all.
+* If the types are differnt, the equivalent of one `==` would be two (or more!) `===` (ie, "slower")
+
+Summary: whether the types match or not, `==` is the _more sensible_ choice.
+
+If you _don't know_ the types in a comparison: Not knowing the types means not fully understanding that code.
+
+So, best to refactor so you can _know the types_ (if possible).
+
+The uncertainty of not knowing the types should be obvious to the reader (if this is the case).
+
+The usage of `===` should be reserved for the situations where you don't know the types. You are saying "I don't know the types, so I am protecting myself".
+
+Summary: if you _can't or won't_ use known and obvious types, `===` is the only _reasonable_ choice.
+
+Summary: making types known and obvious leads to better code. If types are known, `==` is best. Otherwise, fall back to `===`.
