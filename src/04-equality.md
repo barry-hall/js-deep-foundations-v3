@@ -28,7 +28,29 @@ If a tool forces you to do something (i.e. it can't be configured) then that too
 
 ## Double Equals Algorithm
 
+Double equals favours calling .toNumber on y where x == y.
 
+Coercive Equalty: prefers numberic comparison.
+
+Double equals only compares primitives. If you compare something that _isn't_ a primitive, it will call ToPrimitive(x) == y.
+
+## Double Equals Walkthough
+
+Take this example;
+
+```js
+var workshop1Count = 42;
+var workshop2Count =  [42];
+
+if(workshop1Count == workshop2Count) {
+    // Yep (hmm...)
+    // first, it tries to compare workshop1Count and workshop2Count
+    // if(42 == "42") is invoked as it calls ToPrimitive on the array, which is a string
+    // ^ this is only _accidentally_ working because there is one value in the array
+    // if(42 === 42) now we have a number and a string, so favoring numeric, the algorithm coerces the string "42" to a number.
+}
+
+```
 
 ## Double Equals Summary
 
