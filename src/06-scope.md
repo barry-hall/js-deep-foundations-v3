@@ -39,4 +39,13 @@ otherClass();   // Welcome!
 ask();          // Why?
 ```
 
+Scope is "author" time decisions.
+
 ## Executing Code
+
+`var teacher =  "Kyle"`. The compiler handles _var teacher_ and the execution engine handles _teacher = "Kyle"_.
+
+When you reference a variable in a source position or a target position you first have to look it up. The relevent scopes are checked for them and the reference returned first. Source and target positions are created at compile time, but we don't use them until runtime.
+
+## Code Execution: Finishing Up
+
