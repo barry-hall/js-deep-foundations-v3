@@ -2,6 +2,8 @@
 
 [Frontend masters course with Kyle Simpson](https://frontendmasters.com/courses/deep-javascript-v3/)
 
+## [Course Notes Here](/src/00-index.md)
+
 ## Going deep with JacaScript
 
 JS is built on three pillars.

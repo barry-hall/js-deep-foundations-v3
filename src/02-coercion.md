@@ -1,6 +1,6 @@
 # Coercion
 
-## Abstract Operations
+## Abstract Operations
 
 These are the fundamental building blocks of how we deal with type conversion. Coercion is type conversion. They are interchangable.
 

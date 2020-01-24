@@ -49,3 +49,12 @@ When you reference a variable in a source position or a target position you firs
 
 ## Code Execution: Finishing Up
 
+A source reference is where you are requesting the value of something. A target reference is where you are assigning. eg:
+
+```js
+var question = "Why"?; // < Target reference for an identifier called "question".
+console.log(question)  // < a Source reference to question.
+```
+
+## Dynamic Global Variables
+
