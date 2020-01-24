@@ -117,3 +117,13 @@ ask("?????");           // Reference error!
 Here is the scope shown as an image:
 
 ![scopes](/img/scope.png)
+
+## undefined vs undeclared
+
+**The difference is _undefined_ means a variable exists but at the moment it has no value. It might have, but it doesn't right now. _Undeclared_ means it's never been formally decalared in any scope we have access to.**
+
+## Lexical Scope Elevator
+
+Think of scope as an elevator. When you're looking for something you look in the current scope (the ground floor) if you can't find it, you keep going up the elevator (or scopes) until you reach the global scope (top floor) looking for it.
+
+![scope-elevator](/img/scope-elevator.png)
