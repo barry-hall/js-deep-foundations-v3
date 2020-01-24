@@ -54,6 +54,3 @@ var ids = people.map(function getId(person)){   // Anonymous arrow function
     return person.id;
 }
 ```
-
-## Functions Types Hierarchy
-
