@@ -76,3 +76,44 @@ Never should you _intentionally_ create globals like the above. Always declare t
 
 ## Strict Mode
 
+When you use strict mode, (and you should) it will avoid mistakes like creating auto globals. JS doesn't default to strict mode, so you always have to opt in.
+
+```js
+"use strict"
+
+var teacher = "Kyle";
+function otherClass() {
+    teacher = "Suzy";
+    topic = "React";            // REFERENCE ERROR!
+    console.log("Welcome!");
+}
+
+otherClass();
+```
+
+Inside of a class and various other ES6 things (like modules) strict mode is assumed.
+
+Strict mode is the future of the language, so you should use it.
+
+## Nested Scope
+
+```js
+var teacher = "Kyle";
+
+function otherClass() {
+    var teacher = "Suzy";
+
+    function ask(question) {
+        console.log(teacher, question)
+    }
+
+    ask("Why?");
+}
+
+otherClass();           // Suzy, why?
+ask("?????");           // Reference error!
+```
+
+Here is the scope shown as an image:
+
+![scopes](/img/scope.png)
