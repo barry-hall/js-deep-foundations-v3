@@ -58,3 +58,21 @@ console.log(question)  // < a Source reference to question.
 
 ## Dynamic Global Variables
 
+```js
+var teacher = "Kyle";
+
+function otherClass() {
+    teacher = "Suzy";
+    topic = "React";            // this will ask the global scope for "topic" and global will create it. Here we have essentially created an "auto global"
+    console.log("Welcome!");
+}
+
+otherClass();   // Welcome!
+teacher;        // ?? Suzy, we overwrote the value in the otherClass scope when we invoked the otherClass()
+topic;          // ?? React, although if this happened before otherClass() there would be no identifier
+```
+
+Never should you _intentionally_ create globals like the above. Always declare them in the appropriate scope.
+
+## Strict Mode
+
