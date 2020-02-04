@@ -22,8 +22,51 @@ If dynamic scoping _did_ exist in JavaScript, it would look like the following; 
 
 ## Function Scoping
 
+Take the following example;
+
+```js
+var teacher = "Kyle";
+// ..
+var teacher = "Suzy";
+console.log(teacher); // Suzy
+// ..
+console.log(teacher); // Suzy -- oops!
+```
+
+The problem isn't the variable can be reassigned, but that we have a naming collision.
+
+To resolve this problem, we can use function scoping:
+
+```js
+var teacher = "Kyele";
+
+function anotherTeacher() {
+    var teacher = "Suzy";
+    console.log(teacher);   // Suzy
+}
+
+anotherTeacher();
+
+console.log(teacher);   // Kyle
+```
+
+^ this is just moving things around a little. If we _really_ wanted to control the scope then we could use something like and IIFE (see below).
+
+There is a principle in software development called _the principle of lead privilege_ which is to say default to private data. Only expose what you need to expose. If you make something public, you are reducing your chance at being able to refactor, as if you refactor something that's public you're potentially breaking someone elses code.
 
 ## IIFE Pattern
+
+```js
+var teacher = "Kyle";
+( function anotherTeacher() {
+    var teacher = "Suzy";
+    console.log(teacher);       // Suzy
+})();
+console.log(teacher);          // Kyle
+```
+
+^ this creates a scope then immediately invokes the function and data within.
+This is just invoked and we are done, hence "immediately invoked function expression".
 
 ## Block Scoping
 

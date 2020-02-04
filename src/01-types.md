@@ -84,7 +84,7 @@ var v = 42n;    // or: BigInt(42)
 typeof v;       //BigInt
 ```
 
- BigInt can go infinitely large upto the memory space of the system. It's handy that typeof can determine between the two so we know if we are dealing with a number of a bigint.
+BigInt can go infinitely large upto the memory space of the system. It's handy that typeof can determine between the two so we know if we are dealing with a number of a bigint.
 
 ## Kinds of Emptiness
 
