@@ -163,7 +163,23 @@ teachers[1] = "Carl";   // Allowed!
 
 There is a baggage that comes with const that you need to be aware of.
 
+What the `const` is saying from a semantic perspective is: _For the rest of the block I promise it's not going to get reassigned._
+
+A good rule of thumb is only use them on strings, booleans or numbers as these are primitive types.
+
+Constants are supposed to give semantic meaning as placeholders.
+
+**Advice:**
+
+* default to use `var`
+* use `let` where it is helpful
+* use `const` sparingly only with immutable primitive values.
+
 ## Hoisting
+
+**N.B** _This probably needs a bit more explanation but I understand hoisting in general. It is Kyles definition I need to better define._
+
+The JS engine essentially makes two passes over the code. The first pass scans all the variables and declarations and the second one executes them. The first pass is to do a form of "parsin" for the executing engine.
 
 ## Hoisting Example
 

@@ -2,6 +2,8 @@
 
 [Frontendmasters course](https://frontendmasters.com/courses/deep-javascript-v3/)
 
+Teacher: [Kyle Simpson](https://twitter.com/getify)
+
 ## Topics
 
 * [Types](01-types.md)
