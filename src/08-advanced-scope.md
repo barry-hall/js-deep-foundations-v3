@@ -181,6 +181,6 @@ Constants are supposed to give semantic meaning as placeholders.
 
 The JS engine essentially makes two passes over the code. The first pass scans all the variables and declarations and the second one executes them. The first pass is to do a form of "parsin" for the executing engine.
 
-## Hoisting Example
+Only declarations are hoisted. Not assignment.
 
-## let Doesn't Hoist
+Both `let` and `const` will hoist, it's just that they don't get initialized.
