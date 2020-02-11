@@ -6,17 +6,17 @@ Teacher: [Kyle Simpson](https://twitter.com/getify)
 
 ## Topics
 
-* [Types](01-types.md)
-* [Coercion](02-coercion.md)
-* [Coercion philosophy](03-coercion-philosophy.md)
-* [Equality](04-equality.md)
-* [Static typing](05-static-typing.md)
-* [Scope](06-scope.md)
-* [Scope and function expressions](07-scope-and-function-expressions.md)
-* [Advanced scope](08-advanced-scope.md)
-* [Closure](09-closure.md)
-* [Objects](10-objects.md)
-* [Prototypes](11-prototypes.md)
+* [Types](src/01-types.md)
+* [Coercion](src/02-coercion.md)
+* [Coercion philosophy](src/03-coercion-philosophy.md)
+* [Equality](src/04-equality.md)
+* [Static typing](src/05-static-typing.md)
+* [Scope](src/06-scope.md)
+* [Scope and function expressions](src/07-scope-and-function-expressions.md)
+* [Advanced scope](src/08-advanced-scope.md)
+* [Closure](src/09-closure.md)
+* [Objects](src/10-objects.md)
+* [Prototypes](src/11-prototypes.md)
 
 JS is built on three pillars.
 
