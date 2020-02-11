@@ -4,7 +4,7 @@
 
 ## [Course Notes Here](/src/00-index.md)
 
-## Going deep with JacaScript
+### Going deep with JacaScript
 
 JS is built on three pillars.
 

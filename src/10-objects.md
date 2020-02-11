@@ -75,7 +75,25 @@ The purpose of the new keyword is to invoke a function with the `this` keyword p
 
 ## Default Binding
 
+The final way of invoking a function is called default binding.
 
+```js
+var teacher = "Sid";
+
+function ask(question) {
+    console.log(this.teacher, question);
+}
+
+function askAgain(question) {
+    "use strict";
+    console.log(this.teacher, question);
+}
+
+ask("What's the non-strict-mode default?");
+// Sid What's the non-strict-mode default?
+askAgain("What's the strict-mode default?");
+// TypeError
+```
 
 ## Binding Precedence
 
