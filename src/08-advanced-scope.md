@@ -183,4 +183,6 @@ The JS engine essentially makes two passes over the code. The first pass scans a
 
 Only declarations are hoisted. Not assignment.
 
+Variables and function definitions are hoisted to the top of their executing scope.
+
 Both `let` and `const` will hoist, it's just that they don't get initialized.

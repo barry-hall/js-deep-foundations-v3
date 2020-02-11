@@ -160,6 +160,34 @@ Factory function can be called hundred of times, each time you will get a sepera
 
 ## ES6 Modules & Node.js
 
+There was clamouring that if modules were so important as a design pattern for JS, then we ought to have first class syntactic support for them.
 
+ES6 introduced modules.
+
+```js
+var teacher = "Sid";
+
+export default function ask(question) {
+    console.log(teacher, question)
+};
+```
+
+Anything you export is public, everything you don't, is private. Modules are file based and singletons. You cannot import it more than once. If you want someone to have multiple instances of your module code, you need to expose a factory function for them to use.
 
 ## ES6 Module Syntax
+
+There are two major styles of importing modules. A "Java" style import or a "namespace" import.
+
+```js
+import ask from "workshop.mjs"
+
+ask("It's a default import, right?");
+// Sid It's a default import, right?
+
+import * as workshop from "workshop.mjs"
+
+workshop.ask("It's a namespace import, right?");
+// Sid It's a namespace import, right?
+```
+
+**You're organising a set of behviour into a cohesive unit, hiding data in it and exposing a minimal api.**
