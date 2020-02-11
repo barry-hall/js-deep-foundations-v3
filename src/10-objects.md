@@ -95,9 +95,31 @@ askAgain("What's the strict-mode default?");
 // TypeError
 ```
 
+In non strict mode, the default function call falls back to the global context. In strict mode, when you invoke it with no other `this` bindings, the default is to leave `this` undefined. Hence the type error in `askAgain`.
+
 ## Binding Precedence
 
+Take the following code:
 
+```js
+var workshop = {
+    teacher: "Sid",
+    ask: function ask(question) {
+        console.log(this.teacher, question);
+    },
+};
+
+new (workshope.ask.bin(workshop))("What does this do?");
+```
+
+Here we have a new keyword, context object and a bind. There are three of the four rules matched on the same callsight for invoking the function.
+
+If more than one rule matches a call site, the order of precedence is:
+
+1. Is the function called by `new`?
+2. Is the function called by `call()` or `apply()`?
+3. Is the function called on a context object?
+4. DEFAULT: global object (except strict mode)
 
 ## Arrow Functions & Lexical this
 
