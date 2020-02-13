@@ -123,7 +123,25 @@ If more than one rule matches a call site, the order of precedence is:
 
 ## Arrow Functions & Lexical this
 
+An arrow function does not define a `this` keyword at all. There is no such thing as `this` in an arrow. If you put a `this` in an arrow, it will behave like any other variable. Therefore it will lexically resolve to some enclosing scope that does define a `this` keyword.
 
+```js
+var workshop = {
+    teacher: "Sid",
+    ask(question) {
+        setTimeout( ()=> {
+            console.log(this.teacher, question)
+        }, 100);
+    },
+};
+
+workshope.ask("Is this lexical, 'this'?");
+// Sid Is this lexical 'this'?
+```
+
+This is resolved to the workshop context as that is the call site;
+
+![lexical-this](/img/lexical-this.png)
 
 ## Resolving this in Arrow Functions
 
