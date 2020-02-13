@@ -143,6 +143,8 @@ This is resolved to the workshop context as that is the call site;
 
 ![lexical-this](/img/lexical-this.png)
 
+An arrow function is not a hard bound function. You cannot call `new` on an arrow function. An arrow function is a function that does not define a `this`. If you use nested arrow functions, it will keep resolving upwards until it finds a `this`.
+
 ## Resolving this in Arrow Functions
 
 
