@@ -147,7 +147,26 @@ An arrow function is not a hard bound function. You cannot call `new` on an arro
 
 ## Resolving this in Arrow Functions
 
+Objects are not scopes. In the following example, the arrow function will look for the `this` context at the global level.
 
+```js
+var workshop = {
+    teacher: "Sid",
+    ask: (question) => {
+        console.log(this.teacher, question);
+    }
+}
+
+workshop.ask("What happened to `this`?");
+// undefined What happened to `this`?
+
+workshop.ask.call(workshop, "Still no `this`?");
+// undefined Still no `this`?
+```
+
+This is a common mistake people have. An arrow function doesn't have `this` and resolves it lexically. There is the scope of the ask function which is an arrow and the global. There is no scope in workshop.
+
+If you need a lexical `this` then an arrow function is the right tool for the job. Otherwise stick with functions.
 
 ## ES6 class Keyword
 
