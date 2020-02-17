@@ -168,6 +168,12 @@ This is a common mistake people have. An arrow function doesn't have `this` and 
 
 If you need a lexical `this` then an arrow function is the right tool for the job. Otherwise stick with functions.
 
+_If a function uses `this` internally then often you'll bind `this`_.
+
+e.g. in the below example, there is no need to call `this.printRecord.bind(this)` as `printRecord` doesn't actually use `this`.
+
+![this-binding](/img/this-binding.png)
+
 ## ES6 class Keyword
 
 
