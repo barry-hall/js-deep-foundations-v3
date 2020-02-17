@@ -176,7 +176,89 @@ e.g. in the below example, there is no need to call `this.printRecord.bind(this)
 
 ## ES6 class Keyword
 
+The class pattern is the more prevelant pattern used in JS. It is essentially syntactic sugar over the prototype system.
 
+```js
+class Workshop {
+    constructor(teacher) {
+        this.teacher = teacher;
+    }
+    ask(question) {
+        console.log(this.teacher, question);
+    }
+}
 
-## Fixing this in Classes
+var deepJS = new Workshop("Sid");
+var reactJS = new Workshop("Lemmy");
 
+deepJS.ask("Is `class` a class?");
+// Sid Is `class` a class?
+reachJS.ask("Is this class OK?");
+// Lemmy Is this class OK?
+```
+
+Classes can be defined with or without an extends clause. The constructor is optional.
+
+If you want to `extend` a class, then you use the `extends` clause, e.g.
+
+```js
+class Workshop {
+    constructor(teacher) {
+        this.teacher = teacher;
+    }
+    ask(question) {
+        console.log(this.teacher, question);
+    }
+}
+
+class AnotherWorkshop extends Workshop {
+    speakUp(msg) {
+        this.ask(msg);
+    }
+}
+
+var JSRecentParts = new AnotherWorkshop("Carl");
+JSRecentParts.speakUp("Are classes getting better?");
+// Carl Are classes getting better?
+```
+
+This is inheritance in classes.
+
+You can also do relative polymorphism. If you have a child class that defines a method of the smae name as a parent class ("Shadowing"), you can refer to the parent from the child by saying `super` e.g.
+
+```js
+class Workshop {
+    constructor(teacher) {
+        this.teacher = teacher;
+    }
+    ask(question) {
+        console.log(this.teacher, question);
+    }
+}
+
+class AnotherWorkshop extends Workshop {
+    ask(msg) {
+        super.ask(msg.toUpperCase());
+    }
+}
+
+var JSRecentParts = new AnotherWorkshop("Carl");
+JSRecentParts.speakUp("Are classes super?");
+// Carl ARE CLASSES SUPER?
+```
+
+This is an example of extension beyond syntactic sugar. Prior to this, there was no way to do relative polymorphism.
+
+Classes are their own complexity sink. They are getting all sorts of their own features, public and private, decorators etc. These are upcoming features.
+
+`this` binding is still affected in classes;
+
+![this-classes](/img/this-classes.png)
+
+A common way people fix this is with the following _PLEASE DO NOT DO THIS_.
+
+![this-classes-hard-bind](/img/this-classes-hard-bind.png)
+
+By doing this you are betraying the system that classes are built upon. The idea of classes is that methods don't exist on your _instances_, but they exist on your _prototypes_.
+
+Favour modules over classes. Use classes if you need super and polymorphism etc.
