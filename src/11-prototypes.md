@@ -86,3 +86,11 @@ One proposal for a "new" style is OOLO:
 ![oloo-delegated](/img/oloo-delegated.png)
 
 ## Delegation-Orinted Design
+
+Delegation (Dynamic composition). Using delegation you stop thinking about more traditional "parent > child" and start to think more in terms of "peer to peer". I can have a "LoginController" that is _linked to_ "AuthController".
+
+![delegation-design](/img/delegation-design.png)
+
+Using this style the two objects share a context.
+
+This makes things more testable. For example you can test your LoginFormController by prototype linking to a MockAuthController. You could also make a MockLoginFormController and link to AuthController.
